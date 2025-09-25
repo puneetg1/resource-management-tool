@@ -1,0 +1,73 @@
+{
+    "resources": [
+        {
+            "First name": "Khushboo",
+            "Last name": "Sahu",
+            "Line Manager": "Puneet Garg",
+            "% Allocation": 91,
+            "Project": "Lindt",
+            "Open Air ID": [
+                "230266",
+                "230563"
+            ],
+            "Location": "India",
+            "Stream": "Backend",
+            "Tech Skills": [
+                "Adobe",
+                "GraphQL"
+            ],
+            "Job Title": "BE Engineer",
+            "Contract / Perm": "PATH",
+            "Billable": "Y",
+            "Resource End date": "10/10/2025",
+            "Countdown": 17,
+            "Notes": ""
+        },
+        {
+            "First name": "Narendra",
+            "Last name": "Kamadi",
+            "Line Manager": "Puneet Garg",
+            "% Allocation": 60,
+            "Project": "Lindt",
+            "Open Air ID": [
+                "230507",
+                "230178"
+            ],
+            "Location": "India",
+            "Stream": "Backend",
+            "Tech Skills": [
+                "Adobe",
+                "GraphQL"
+            ],
+            "Job Title": "BE Engineer",
+            "Contract / Perm": "P",
+            "Billable": "Y",
+            "Resource End date": "10/10/2025",
+            "Countdown": 17,
+            "Notes": "Booked for 230507 for partial allocation from 10-Sept-2025"
+        },
+        {
+            "First name": "John",
+            "Last name": "Doe",
+            "Line Manager": "Jane Smith",
+            "% Allocation": 100,
+            "Project": "Project Alpha",
+            "Open Air ID": [
+                "230100"
+            ],
+            "Location": "USA",
+            "Stream": "Frontend",
+            "Tech Skills": [
+                "React",
+                "TypeScript",
+                "CSS"
+            ],
+            "Job Title": "FE Engineer",
+            "Contract / Perm": "P",
+            "Billable": "Y",
+            "Resource End date": "12/31/2024",
+            "Countdown": 5,
+            "Notes": "Senior developer with 5+ years experience"
+        }
+    ]
+}

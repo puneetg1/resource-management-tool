@@ -1,0 +1,60 @@
+{
+  "hash": "02baba6a",
+  "configHash": "2caedc65",
+  "lockfileHash": "3c47f123",
+  "browserHash": "e7ade4f8",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "dd3771af",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "19e73d48",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "02290731",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "7825ed70",
+      "needsInterop": true
+    },
+    "recharts": {
+      "src": "../../node_modules/recharts/es6/index.js",
+      "file": "recharts.js",
+      "fileHash": "93b83afd",
+      "needsInterop": false
+    },
+    "uuid": {
+      "src": "../../node_modules/uuid/dist/index.js",
+      "file": "uuid.js",
+      "fileHash": "ad1bcb00",
+      "needsInterop": false
+    },
+    "xlsx": {
+      "src": "../../node_modules/xlsx/xlsx.mjs",
+      "file": "xlsx.js",
+      "fileHash": "a5efb38e",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "react-BnjSyJtt": {
+      "file": "react-BnjSyJtt.js",
+      "isDynamicEntry": false
+    },
+    "react-dom-DtOtxA1T": {
+      "file": "react-dom-DtOtxA1T.js",
+      "isDynamicEntry": false
+    }
+  }
+}

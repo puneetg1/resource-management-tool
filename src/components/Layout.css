@@ -1,0 +1,11 @@
+.layout-root { min-height: 100vh; background: var(--bg); color: var(--text); display: grid; grid-template-rows: 64px 1fr; }
+.layout-header { display: flex; align-items: center; justify-content: space-between; padding: 0 16px; background: #fff; border-bottom: 1px solid var(--border); }
+.layout-title { font-weight: 700; }
+.layout-nav { display: flex; gap: 12px; }
+.layout-nav a { padding: 6px 10px; border-radius: 6px; }
+.layout-nav a.active { background: #111; color: #fff; }
+.layout-main { padding: 24px; }
+
+.login-shell { min-height: 100vh; background: var(--bg); color: var(--text); display: grid; place-items: center; }
+.login-card { width: min(420px, 92vw); background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+
