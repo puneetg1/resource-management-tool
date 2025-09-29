@@ -1,0 +1,5 @@
+.login-title { margin: 0 0 8px 0; }
+.login-form { display: grid; gap: 12px; }
+.login-input { padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text); }
+.login-error { color: #ef4444; }
+

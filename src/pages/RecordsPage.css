@@ -1,0 +1,130 @@
+.records-toolbar { display: flex; gap: 8px; align-items: center; }
+.records-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin: 16px 0; }
+.records-input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; }
+
+.action-buttons {
+  display: flex;
+  align-items: center; /* Good practice for vertical alignment */
+  gap: 8px; /* This creates the space between the buttons */
+}
+
+/* Add this class to your existing table styles */
+.table.table-wrap {
+  /* This is the key: it tells the table to respect the widths you give it,
+     which is essential for wrapping to work predictably. */
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table.table-wrap td,
+.table.table-wrap th {
+  /* This allows long words (like IDs or URLs) to break and wrap to the next line */
+  overflow-wrap: break-word;
+
+  /* You can optionally set a max-width for columns if you want
+     to force wrapping at a certain point. `ch` is the character unit. */
+  /* max-width: 20ch; */
+}
+
+
+/* src/pages/RecordsPage.css */
+
+.filters-container {
+  /* Layout & Spacing */
+  display: flex;
+  flex-wrap: wrap; /* Allows filters to stack on smaller screens */
+  gap: 1rem;
+  
+  /* Appearance */
+  padding: 0.8rem;
+  background-color: var(--bg-alt); /* A slightly different background to group the filters */
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.filter-input {
+
+  flex: 1 1 200px; 
+  
+  /* Appearance */
+  font-size: 1rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  color: var(--text);
+  
+  /* Remove default OS styling on dropdowns */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Smooth transitions for hover/focus effects */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Clear visual feedback when a user interacts with a filter */
+.filter-input:focus {
+  outline: none; /* Remove default blue ring */
+  border-color: var(--primary); /* Use your primary theme color */
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.1); /* Add a soft "glow" */
+}
+
+/* Custom dropdown arrow for a cleaner, unified look */
+select.filter-input {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%236b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1em;
+  padding-right: 2.5rem; /* Add space so text doesn't overlap the arrow */
+}
+
+/* src/pages/RecordsPage.css */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  min-height: 300px; /* Ensures the loader is centered even if the table was short */
+}
+
+.loader {
+  /* The shape and size of the spinner */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  
+  /* The colored ring */
+  border: 6px solid var(--bg-alt); /* Light gray ring */
+  border-top-color: var(--primary); /* Your primary theme color for the spinning part */
+  
+  /* The animation */
+  animation: spin 1s linear infinite;
+}
+
+/* The spinning animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.countdown-green {
+  color: #16a34a; /* Green */
+  font-weight: 500;
+}
+
+.countdown-orange {
+  color: #f97316; /* Orange */
+  font-weight: 500;
+}
+
+.countdown-red {
+  color: #ef4444; /* Red */
+  font-weight: 700;
+}

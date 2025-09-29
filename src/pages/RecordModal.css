@@ -1,0 +1,70 @@
+/* -- Modal Layout & Overlay -- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--bg); /* Uses variables from your index.css */
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  width: min(600px, 90vw);
+  max-height: 90vh; /* Prevents modal from being taller than the screen */
+  display: flex; /* This is the key! */
+  flex-direction: column; /* Stack children vertically */
+  overflow: hidden; /* Ensures rounded corners are respected */
+}
+
+/* -- Modal Header (Title) -- */
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-shrink: 0; /* Prevents the header from shrinking */
+}
+
+/* -- Modal Body (The scrollable part) -- */
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto; /* Makes only this area scrollable! */
+  flex-grow: 1; /* Allows this area to fill available space */
+}
+
+/* -- Modal Footer (Action Buttons) -- */
+.modal-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end; /* Aligns buttons to the right */
+  gap: 0.75rem;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+/* -- Form Styles (Unchanged but included for completeness) -- */
+.modal-form .form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
