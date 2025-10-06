@@ -1,0 +1,28 @@
+# === Python Backend (BE Code) ===
+BE Code/__pycache__/
+BE Code/myenv/
+BE Code/.env
+BE Code/*.pyc
+
+# Ignore Python build or cache files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
+
+# === Node/React Frontend (FE Code) ===
+FE Code/node_modules/
+FE Code/dist/
+FE Code/.env
+FE Code/.env.local
+FE Code/.DS_Store
+FE Code/npm-debug.log*
+FE Code/yarn-debug.log*
+FE Code/yarn-error.log*
+
+# === System / Editor Files ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
