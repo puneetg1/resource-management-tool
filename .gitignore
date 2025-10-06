@@ -1,24 +1,28 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# === Python Backend (BE Code) ===
+BE Code/__pycache__/
+BE Code/myenv/
+BE Code/.env
+BE Code/*.pyc
 
-node_modules
-dist
-dist-ssr
-*.local
+# Ignore Python build or cache files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# === Node/React Frontend (FE Code) ===
+FE Code/node_modules/
+FE Code/dist/
+FE Code/.env
+FE Code/.env.local
+FE Code/.DS_Store
+FE Code/npm-debug.log*
+FE Code/yarn-debug.log*
+FE Code/yarn-error.log*
+
+# === System / Editor Files ===
+.vscode/
+.idea/
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
