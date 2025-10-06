@@ -1,14 +1,17 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { APP_NAME } from '../config'
-import { Auth } from '../utils/auth'
-import './Layout.css'
+import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { APP_NAME } from '../config';
+import { Auth } from '../utils/auth';
+import './Layout.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Layout({ children }) {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const user = Auth.currentUser()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const user = Auth.currentUser();
 
-  const isLogin = location.pathname === '/login'
+  const isLogin = location.pathname === '/login';
 
   if (isLogin) {
     return (
@@ -17,7 +20,7 @@ export default function Layout({ children }) {
           {children}
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -25,9 +28,8 @@ export default function Layout({ children }) {
       <header className="layout-header">
         <div className="layout-title">{APP_NAME}</div>
         <nav className="layout-nav">
-          <Link to="/dashboard" className={location.pathname.startsWith('/dashboard') ? 'active' : ''}>Home</Link>
-          <Link to="/records" className={location.pathname.startsWith('/records') ? 'active' : ''}>Records</Link>
           <Link to="/dashboard" className={location.pathname.startsWith('/dashboard') ? 'active' : ''}>Dashboard</Link>
+          <Link to="/records" className={location.pathname.startsWith('/records') ? 'active' : ''}>Records</Link>
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {user ? (
@@ -41,10 +43,15 @@ export default function Layout({ children }) {
         </div>
       </header>
       <main className="layout-main container">{children}</main>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        theme="colored"
+      />
     </div>
-  )
+  );
 }
-
-function NavLink() { return null }
-
-

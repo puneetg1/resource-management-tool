@@ -1,42 +1,66 @@
-
-
 import { useState, useEffect } from 'react';
 import './RecordModal.css';
+
+// Helper function to format a date string or object into YYYY-MM-DD
+// This is the key to avoiding timezone issues.
+function toYYYYMMDD(dateInput) {
+  if (!dateInput) return '';
+  try {
+    const d = new Date(dateInput);
+    // Add the timezone offset to counteract the UTC conversion before slicing
+    const dateInCorrectTz = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+    return dateInCorrectTz.toISOString().slice(0, 10);
+  } catch (e) {
+    console.error("Could not parse date:", dateInput);
+    return '';
+  }
+}
+
 
 export default function RecordModal({ isOpen, onClose, onSave, record, schema }) {
   const [formData, setFormData] = useState({});
 
+  // ✅ FIX 1: Format the date correctly ONCE when the modal opens
   useEffect(() => {
-    setFormData(record || {});
-  }, [record]);
+    if (record) {
+      const initialData = { ...record };
+      // Find any date fields in the schema and format them
+      (schema?.fields || []).forEach(field => {
+        if (field.type === 'date' && initialData[field.name]) {
+          initialData[field.name] = toYYYYMMDD(initialData[field.name]);
+        }
+      });
+      setFormData(initialData);
+    } else {
+      setFormData({}); // Reset for a new record
+    }
+  }, [record, schema, isOpen]); // Rerun when modal opens
 
   if (!isOpen || !schema) return null;
 
   function handleChange(fieldName, fieldType, value) {
     let newFormData = { ...formData, [fieldName]: value };
 
-   
     if (fieldName === 'Resource End date') {
-      if (value) {
-        const endDate = new Date(value);
+      if (value) { // value is already "YYYY-MM-DD"
+        // Create dates in UTC to ensure calculation is timezone-agnostic
+        const endDate = new Date(`${value}T00:00:00Z`);
         const today = new Date();
+        const todayUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()));
+
+        const timeDiff = endDate.getTime() - todayUTC.getTime();
         
-
-        today.setHours(0, 0, 0, 0);
-
-    
-        const timeDiff = endDate.getTime() - today.getTime();
-        const daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        // ✅ FIX 2: Correct, intuitive countdown logic
+        const daysRemaining = Math.round(timeDiff / (1000 * 3600 * 24));
         
         newFormData['Countdown'] = daysRemaining >= 0 ? daysRemaining : 0;
       } else {
-      
-        newFormData['Countdown'] = 0;
+        newFormData['Countdown'] = null;
       }
     }
-   
+    
     if (fieldType === 'number' && fieldName !== 'Countdown') {
-      newFormData[fieldName] = Number(value) || 0;
+      newFormData[fieldName] = value === '' ? '' : (Number.isNaN(Number(value)) ? formData[fieldName] : Number(value));
     }
 
     setFormData(newFormData);
@@ -52,31 +76,19 @@ export default function RecordModal({ isOpen, onClose, onSave, record, schema })
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          {modalTitle}
-        </div>
+        <div className="modal-header">{modalTitle}</div>
 
         <div className="modal-body">
           <form onSubmit={handleSubmit} className="modal-form" id="record-form">
-            {(schema?.fields || []).map(field => {
-              let inputValue = formData[field.name] ?? '';
-
-              if (field.type === 'date' && inputValue) {
-                try {
-                  inputValue = new Date(inputValue).toISOString().slice(0, 10);
-                } catch (e) {
-                  console.error("Invalid date value:", inputValue);
-                  inputValue = '';
-                }
-              }
-
-              // Make the Countdown input read-only
+            {(schema?.fields || []).map((field) => {
               const isCountdown = field.name === 'Countdown';
+              // ✅ FIX 3: Drastically simplified rendering. No more date formatting here!
+              const inputValue = formData[field.name] ?? '';
 
               return (
                 <div key={field.name} className="form-group">
                   <label htmlFor={field.name}>{field.label || field.name}</label>
-                  
+
                   {field.name === 'Stream' ? (
                     <select
                       id={field.name}
@@ -97,8 +109,12 @@ export default function RecordModal({ isOpen, onClose, onSave, record, schema })
                       onChange={(e) => handleChange(field.name, field.type, e.target.value)}
                       className="modal-input"
                       required={field.name === 'First name' || field.name === 'Last name'}
-                      readOnly={isCountdown} // ✅ Make the countdown field non-editable
-                      style={isCountdown ? { backgroundColor: '#f0f0f0' } : {}} // Optional: style to show it's read-only
+                      readOnly={isCountdown}
+                      style={
+                        isCountdown
+                          ? { backgroundColor: '#f0f0f0', cursor: 'not-allowed' }
+                          : {}
+                      }
                     />
                   )}
                 </div>
@@ -115,3 +131,4 @@ export default function RecordModal({ isOpen, onClose, onSave, record, schema })
     </div>
   );
 }
+
