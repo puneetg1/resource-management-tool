@@ -1328,12 +1328,12 @@ import {
 
 const displaySchema = {
   fields: [
-    { "name": "fullName", "label": "Name" }, { "name": "% Allocation", "label": "Allocation %" }, { "name": "Project", "label": "Project" }, { "name": "Open Air ID", "label": "Open Air ID" }, { "name": "Job Title", "label": "Job Title" }, { "name": "Stream", "label": "Stream" }, { "name": "Contract / Perm", "label": "Contract / Perm" }, { "name": "Resource End date", "label": "End Date" }, { "name": "Countdown", "label": "Countdown" }
+    { "name": "fullName", "label": "Name" }, { "name": "% Allocation", "label": "Allocation %" }, { "name": "Project", "label": "Project" }, { "name": "Open Air ID", "label": "Open Air ID" }, { "name": "Job Title", "label": "Job Title" }, { "name": "Stream", "label": "Stream" }, { "name": "Contract / Perm", "label": "Contract / Perm" }, { "name": "Resource End date", "label": "End Date" ,  "type": "date" }, { "name": "Countdown", "label": "Countdown" }
   ]
 };
 const formSchema = {
   fields: [
-    { "name": "First name", "label": "First Name" }, { "name": "Last name", "label": "Last Name" }, { "name": "Line Manager", "label": "Line Manager" }, { "name": "% Allocation", "label": "Allocation %" }, { "name": "Project", "label": "Project" }, { "name": "Open Air ID", "label": "Open Air ID (comma-separated)" }, { "name": "Location", "label": "Location" }, { "name": "Stream", "label": "Stream" }, { "name": "Tech Skills", "label": "Tech Skills (comma-separated)" }, { "name": "Job Title", "label": "Job Title" }, { "name": "Contract / Perm", "label": "Contract / Perm" }, { "name": "Billable", "label": "Billable" }, { "name": "Resource End date", "label": "End Date" }, { "name": "Countdown", "label": "Countdown" }, { "name": "Notes", "label": "Notes" }
+    { "name": "First name", "label": "First Name" }, { "name": "Last name", "label": "Last Name" }, { "name": "Line Manager", "label": "Line Manager" }, { "name": "% Allocation", "label": "Allocation %" }, { "name": "Project", "label": "Project" }, { "name": "Open Air ID", "label": "Open Air ID (comma-separated)" }, { "name": "Location", "label": "Location" }, { "name": "Stream", "label": "Stream" }, { "name": "Tech Skills", "label": "Tech Skills (comma-separated)" }, { "name": "Job Title", "label": "Job Title" }, { "name": "Contract / Perm", "label": "Contract / Perm" }, { "name": "Billable", "label": "Billable" }, { "name": "Resource End date", "label": "End Date", "type": "date" }, { "name": "Countdown", "label": "Countdown" }, { "name": "Notes", "label": "Notes" }
   ]
 };
 
