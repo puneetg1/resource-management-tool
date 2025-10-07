@@ -4,40 +4,31 @@
 
 .action-buttons {
   display: flex;
-  align-items: center; /* Good practice for vertical alignment */
-  gap: 8px; /* This creates the space between the buttons */
+  align-items: center;
+  gap: 8px; 
 }
 
-/* Add this class to your existing table styles */
 .table.table-wrap {
-  /* This is the key: it tells the table to respect the widths you give it,
-     which is essential for wrapping to work predictably. */
+
   table-layout: fixed;
   width: 100%;
 }
 
 .table.table-wrap td,
 .table.table-wrap th {
-  /* This allows long words (like IDs or URLs) to break and wrap to the next line */
   overflow-wrap: break-word;
-
-  /* You can optionally set a max-width for columns if you want
-     to force wrapping at a certain point. `ch` is the character unit. */
-  /* max-width: 20ch; */
 }
 
 
-/* src/pages/RecordsPage.css */
 
 .filters-container {
-  /* Layout & Spacing */
   display: flex;
-  flex-wrap: wrap; /* Allows filters to stack on smaller screens */
+  flex-wrap: wrap; 
   gap: 1rem;
   
-  /* Appearance */
+ 
   padding: 0.8rem;
-  background-color: var(--bg-alt); /* A slightly different background to group the filters */
+  background-color: var(--bg-alt);
   border-radius: 12px;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border);
