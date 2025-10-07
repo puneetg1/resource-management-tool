@@ -30,6 +30,8 @@ export default function Layout({ children }) {
         <nav className="layout-nav">
           <Link to="/dashboard" className={location.pathname.startsWith('/dashboard') ? 'active' : ''}>Dashboard</Link>
           <Link to="/records" className={location.pathname.startsWith('/records') ? 'active' : ''}>Records</Link>
+          <Link to="/headcount" className={location.pathname.startsWith('/headcount') ? 'active' : ''}>Headcount</Link>
+
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {user ? (

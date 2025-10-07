@@ -1,46 +1,15 @@
-/* /* -- Main Dashboard Layout --
-.dash-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
 
-/* -- Grids for Cards and Charts -- */
-/* .kpi-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin-bottom: 1.5rem;
-}
-
-.chart-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
-}
-
-.chart-grid .dash-card:first-child {
-  grid-column: 1 / -1;
-}
-
-/* -- Base Card Style with Hover Effect -- */
 .dash-card {
   background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  /* Add smooth transition for the hover effect */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .dash-card:hover {
-  /* Lift the card up slightly on hover */
   transform: translateY(-5px);
-  /* Make the shadow a bit more pronounced */
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
 }
 
@@ -51,7 +20,6 @@
   color: var(--text);
 }
 
-/* -- KPI Card Specific Styles -- */
 .kpi-card {
   text-align: center;
 }

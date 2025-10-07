@@ -145,3 +145,15 @@ export async function getDashboardSummary() {
   }
   return response.json();
 }
+
+
+
+
+export async function getSkillDistribution() {
+  const response = await fetch(`${API_BASE_URL}/skill-distribution`);
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.detail || 'Failed to fetch skill distribution');
+  }
+  return response.json();
+}
